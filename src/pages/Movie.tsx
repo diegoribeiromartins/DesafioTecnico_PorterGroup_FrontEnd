@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function Movie() {
-  return (
-    <div>
-      Movie
-    </div>
-  )
+  return <>Movie</>;
 }
 
-export default Movie
+export default Movie;
