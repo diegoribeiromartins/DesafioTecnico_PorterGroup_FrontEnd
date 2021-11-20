@@ -1,12 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './assets/css/root.css'
+import Loading from './components/Loading';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+const Index = React.lazy(() => import('./pages/Index'));
+const Movie = React.lazy(() => import('./pages/Movie'));
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <React.Suspense fallback={<Loading />}>
+            <Index />
+          </React.Suspense>
+        } />
+        <Route path="/movie/:id" element={
+          <React.Suspense fallback={<Loading />}>
+            <Movie />
+          </React.Suspense>
+        }  />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
