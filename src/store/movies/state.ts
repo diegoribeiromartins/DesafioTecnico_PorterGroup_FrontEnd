@@ -1,5 +1,9 @@
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+  teste: 1,
+};
 
-const reducer = (state = INITIAL_STATE, action: any) => {};
+const reducer = (state = INITIAL_STATE, action: any) => {
+  return state;
+};
 
 export { reducer };

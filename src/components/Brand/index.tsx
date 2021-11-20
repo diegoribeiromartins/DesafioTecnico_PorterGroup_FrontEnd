@@ -1,6 +1,8 @@
 import React from "react";
 
-function index() {
+interface BrandType {}
+
+const Brand: React.FC<BrandType> = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -117,6 +119,6 @@ function index() {
       ></path>
     </svg>
   );
-}
+};
 
-export default index;
+export default Brand;

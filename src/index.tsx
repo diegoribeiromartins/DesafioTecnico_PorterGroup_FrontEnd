@@ -5,31 +5,43 @@ import { Provider } from "react-redux";
 
 import reportWebVitals from "./reportWebVitals";
 import "./assets/css/root.css";
-import Loading from "./components/Loading";
-
 import { store } from "./store";
+
+import Loading from "./components/Loading";
+import MainLayout from "./layouts/Main.layout";
 
 const Index = React.lazy(() => import("./pages/Index"));
 const Movie = React.lazy(() => import("./pages/Movie"));
+const Error404 = React.lazy(() => import("./pages/Error404"));
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route
+              path=""
+              element={
+                <React.Suspense fallback={<Loading />}>
+                  <Index />
+                </React.Suspense>
+              }
+            />
+            <Route
+              path="movie/:id"
+              element={
+                <React.Suspense fallback={<Loading />}>
+                  <Movie />
+                </React.Suspense>
+              }
+            />
+          </Route>
           <Route
-            path="/"
+            path="*"
             element={
               <React.Suspense fallback={<Loading />}>
-                <Index />
-              </React.Suspense>
-            }
-          />
-          <Route
-            path="/movie/:id"
-            element={
-              <React.Suspense fallback={<Loading />}>
-                <Movie />
+                <Error404 />
               </React.Suspense>
             }
           />

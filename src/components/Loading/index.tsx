@@ -1,7 +1,9 @@
 import React from "react";
 
-function Loading() {
-  return <>Carregando..</>;
-}
+interface LoadingType {}
+
+const Loading: React.FC<LoadingType> = () => {
+  return <div>Carregando...</div>;
+};
 
 export default Loading;
