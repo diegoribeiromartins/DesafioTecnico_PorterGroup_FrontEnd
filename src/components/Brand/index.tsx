@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import colorsConfig from "../../config/colors";
 
-type colorsType = "primary" | "secondary" | "dark" | "white";
+type colorsType = "primary" | "secondary" | "dark" | "medium" | "white";
 
 interface BrandType {
   color?: colorsType;
@@ -13,6 +13,7 @@ const Brand: React.FC<BrandType> = ({ color = "white", ...props }) => {
     primary: colorsConfig.primary,
     secondary: colorsConfig.secondary,
     dark: "#101e30",
+    medium: "#707070",
     white: "#FFFFFF",
   };
 
