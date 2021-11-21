@@ -7,6 +7,13 @@ interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
   borderColor?: string;
   rounded?: boolean;
   outline?: boolean;
+  flat?: boolean;
+  inline?: boolean;
+  hover?: string;
+  focus?: string;
+  transition?: string;
+  size?: string;
+  padding?: false | string;
 }
 
 const Button: React.FC<ButtonType> = ({
@@ -14,18 +21,32 @@ const Button: React.FC<ButtonType> = ({
   bg = "bg-white",
   color = "text-black",
   borderColor = "border-white",
+  size = "md",
   rounded = true,
   outline = false,
+  flat = false,
+  inline = false,
+  padding = false,
+  hover = "",
+  focus = "",
+  transition = "",
   ...props
 }) => {
   const classes = classNames(
-    "block",
-    "p-3",
-    "w-full",
+    inline ? "inline-block" : "block w-full",
+    padding ? padding : "py-3 px-6",
+    `text-${size}`,
     "uppercase",
     "font-bold",
-    outline ? `bg-transparent border-2 ${borderColor}` : bg,
+    flat
+      ? "bg-transparent border-none"
+      : outline
+      ? `bg-transparent border-2 ${borderColor}`
+      : bg,
     color,
+    hover,
+    focus,
+    transition,
     {
       "rounded-full": rounded,
     }

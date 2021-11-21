@@ -4,7 +4,7 @@ import MovieItem from "../../components/MovieItem";
 function MovieList() {
   return (
     <>
-      <div>
+      <div className="container mx-auto">
         <MovieItem />
       </div>
     </>
