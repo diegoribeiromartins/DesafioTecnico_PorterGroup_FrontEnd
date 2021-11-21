@@ -25,7 +25,12 @@ const slice = createSlice({
       state.loading = payload;
     },
     setMovies(state, { payload = [] }) {
-      state.list = payload;
+      if (state.list) {
+        state.list.results = [...state.list.results, ...payload.results];
+        state.list.page = payload.page;
+      } else {
+        state.list = payload;
+      }
     },
     setMovieDetail(state, { payload = null }) {
       state.details = payload;

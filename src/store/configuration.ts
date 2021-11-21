@@ -13,7 +13,7 @@ const initialState: InitialStateType = {
 };
 
 const slice = createSlice({
-  name: "movies",
+  name: "configuration",
   initialState,
   reducers: {
     setLoading(state, { payload = false }) {
