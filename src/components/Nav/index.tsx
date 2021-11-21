@@ -1,20 +1,38 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import classNames from "classnames";
+import { RootState } from "../../store";
 
 import Brand from "../Brand";
-import Button from "../Button";
 
 const Nav = () => {
+  const { navigation } = useSelector((state: RootState) => state);
+
+  const brandState = classNames("w-2/12 lg:w-1/12");
+
   return (
     <nav className="py-5 m-none">
       <div className="container mx-auto">
-        <div className="flex justify-center items-center">
-          <div className="w-3/12 lg:w-2/12">
+        <div
+          className={`flex items-center ${
+            navigation.showMenu ? "justify-between" : "justify-center"
+          }`}
+        >
+          <div className={brandState}>
             <Brand />
           </div>
 
-          <menu className="p-none m-none hidden">
-            <Button>Página Inicial</Button>
-          </menu>
+          {navigation.showMenu && (
+            <menu className="p-none m-none">
+              <Link
+                to="/"
+                className="uppercase bg-white text-blue-700 rounded-full py-1 px-5 inline-block font-bold"
+              >
+                Página Inicial
+              </Link>
+            </menu>
+          )}
         </div>
       </div>
     </nav>
