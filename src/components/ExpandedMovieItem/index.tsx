@@ -1,12 +1,19 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
 import MoviePoster from "../../containers/MoviePoster";
 import Button from "../Button";
 import MovieGender from "../MovieGender";
 import MovieRating from "../MovieRating";
+import { MovieType } from "../../types/Movies.interface";
 
-interface ExpandedMovieItemType {}
+interface ExpandedMovieItemType {
+  detach: MovieType;
+}
 
-const ExpandedMovieItem: React.FC<ExpandedMovieItemType> = () => {
+const ExpandedMovieItem: React.FC<ExpandedMovieItemType> = ({ detach }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="w-full grid grid-cols-3 gap-10 items-center">
@@ -16,14 +23,21 @@ const ExpandedMovieItem: React.FC<ExpandedMovieItemType> = () => {
           </div>
 
           <div className="text-4xl text-light my-3">
-            Nome do Filme
-            <span className="align-baseline text-sm ml-3 text-pink-400">
-              2020
-            </span>
+            {detach?.title || ""}
+            {detach?.release_date && (
+              <span className="align-baseline text-sm ml-3 text-pink-400">
+                {new Date(detach.release_date).toLocaleDateString("pt-br", {
+                  year: "numeric",
+                })}
+              </span>
+            )}
           </div>
 
           <div>
-            <MovieRating />
+            <MovieRating
+              average={detach?.vote_average || 0}
+              count={detach?.vote_count || 0}
+            />
           </div>
 
           <div className="my-3">
@@ -36,6 +50,7 @@ const ExpandedMovieItem: React.FC<ExpandedMovieItemType> = () => {
               transition="transition duration-100 ease"
               size="sm"
               padding="py-1 px-6"
+              onClick={() => navigate(`/movie/${detach?.id}`)}
             >
               Mais detalhes
             </Button>

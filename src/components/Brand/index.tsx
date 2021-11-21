@@ -22,7 +22,6 @@ const Brand: React.FC<BrandType> = ({ color = "white", ...props }) => {
       xmlns="http://www.w3.org/2000/svg"
       id="porter-group"
       width="100%"
-      height="auto"
       viewBox="0 0 181.17 53.207"
     >
       <path

@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import "./assets/css/typography.css";
 import "./assets/css/root.css";
 import reportWebVitals from "./reportWebVitals";
-import { store } from "./store";
+import store from "./store";
 
 import Loading from "./components/Loading";
 import MainLayout from "./layouts/Main.layout";

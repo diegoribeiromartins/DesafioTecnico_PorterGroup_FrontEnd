@@ -1,12 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import { reducer as moviesReducer } from "./movies/state";
+import movies, { InitialStateType as MoviesType } from "./movies";
 
-const rootReducer = combineReducers({
-  moviesReducer,
+const reducer = combineReducers({
+  movies,
 });
 
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({ reducer });
 
-export { store };
+export default store;
+export type RootState = ReturnType<typeof reducer>;
