@@ -1,4 +1,5 @@
 import React from "react";
+import Loading from "../components/Loading";
 import Header from "../containers/Header";
 import MovieList from "../containers/MovieList";
 
