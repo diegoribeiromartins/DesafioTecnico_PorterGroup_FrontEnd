@@ -30,3 +30,7 @@ div#root {
   width: 100%;
   position: relative;
 }
+
+div#page {
+  flex: 1;
+}

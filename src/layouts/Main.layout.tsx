@@ -6,11 +6,11 @@ import Nav from "../components/Nav";
 
 const MainLayout = () => {
   return (
-    <>
+    <div className="flex flex-col justify-between h-full w-full">
       <Nav />
       <Outlet />
       <Footer />
-    </>
+    </div>
   );
 };
 
