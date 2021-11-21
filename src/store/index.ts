@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import movies, { InitialStateType as MoviesType } from "./movies";
+import movies from "./movies";
+import configuration from "./configuration";
 
 const reducer = combineReducers({
   movies,
+  configuration,
 });
 
 const store = configureStore({ reducer });

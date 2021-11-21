@@ -23,7 +23,6 @@ const Index = () => {
       const request = await movieUpcomingService();
       _.log("Resposta do request", request);
 
-      _.groupEnd();
       dispatch(setMovies(request.data));
       dispatch(setDetachMovie(request.data.results[0]));
     } catch (err) {
@@ -31,6 +30,7 @@ const Index = () => {
       return false;
     } finally {
       dispatch(setLoading(false));
+      _.groupEnd();
     }
   };
 

@@ -6,9 +6,7 @@ function MovieDetail() {
     <>
       <div>{/* Aqui vem o poster de fundo do filme */}</div>
       <div>
-        <div>
-          <MoviePoster />
-        </div>
+        <div>{/* <MoviePoster /> */}</div>
 
         <div>
           <div>
