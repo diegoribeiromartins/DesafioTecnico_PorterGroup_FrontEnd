@@ -3,8 +3,9 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 
-import reportWebVitals from "./reportWebVitals";
+import "./assets/css/typography.css";
 import "./assets/css/root.css";
+import reportWebVitals from "./reportWebVitals";
 import { store } from "./store";
 
 import Loading from "./components/Loading";
