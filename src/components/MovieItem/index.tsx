@@ -2,12 +2,12 @@ import React from "react";
 import classNames from "classnames";
 
 import { MovieType } from "../../types/Movies.interface";
-import Button from "../Button";
 import MovieRating from "../MovieRating";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { smooth } from "../../helpers/smooth";
+import { Link } from "react-router-dom";
 
 interface MovieItemType {
   movie: MovieType;
@@ -32,7 +32,6 @@ const BackDrop = styled.div<{ path: string }>`
 `;
 
 const MovieItem: React.FC<MovieItemType> = ({ movie }) => {
-  const navigate = useNavigate();
   const { configuration } = useSelector((state: RootState) => state);
 
   const elementClasses = classNames("relative shadow-2xl h-96");
@@ -61,16 +60,13 @@ const MovieItem: React.FC<MovieItemType> = ({ movie }) => {
           </div>
 
           <div className="my-5">
-            <Button
-              flat={true}
-              hover="hover:bg-yellow-200 hover:text-black"
-              transition="transition duration-200 ease-in-out"
-              padding="py-2"
-              color="text-yellow-200"
-              onClick={() => navigate(`/movie/${movie.id}`)}
+            <Link
+              className="block cursor-pointer uppercase font-bold rounded text-center text-yellow-200 py-2 hover:bg-yellow-200 hover:text-black transition duration-200 ease-in-out"
+              to={`/movie/${movie.id}`}
+              onClick={() => smooth()}
             >
               Ver detalhes
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

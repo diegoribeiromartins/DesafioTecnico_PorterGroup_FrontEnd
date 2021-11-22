@@ -11,7 +11,7 @@ const MovieGender: React.FC<MovieGenterType> = ({
 }) => {
   const classnames = classNames(
     `border-${color} text-${color}`,
-    "rounded-full border-2 py-1 px-3 text-xs uppercase font-bold inline-block opacity-50 hover:opacity-100 cursor-default transition duration-100 ease-in-out"
+    "rounded-full border-2 py-1 px-3 text-xs uppercase font-bold inline-block opacity-50 hover:opacity-100 cursor-default transition duration-100 ease-in-out m-1"
   );
 
   return (

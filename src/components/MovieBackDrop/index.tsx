@@ -15,6 +15,7 @@ const BackDrop = styled.div<MovieBackDropType>`
     ),
     url(${(props) => props.address});
   background-size: cover;
+  background-position: center;
   top: 0px;
   left: 0px;
   width: 100%;

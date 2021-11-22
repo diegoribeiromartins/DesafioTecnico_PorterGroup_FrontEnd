@@ -5,6 +5,7 @@ import classNames from "classnames";
 import { RootState } from "../../store";
 
 import Brand from "../Brand";
+import { smooth } from "../../helpers/smooth";
 
 const Nav = () => {
   const { navigation } = useSelector((state: RootState) => state);
@@ -28,6 +29,7 @@ const Nav = () => {
               <Link
                 to="/"
                 className="uppercase bg-white text-blue-700 rounded-full py-1 px-5 inline-block font-bold"
+                onClick={() => smooth()}
               >
                 Página Inicial
               </Link>

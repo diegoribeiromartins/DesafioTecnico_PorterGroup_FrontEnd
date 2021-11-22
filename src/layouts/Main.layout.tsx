@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
@@ -34,6 +35,8 @@ const MainLayout = () => {
   useEffect(() => {
     if (!configuration.data) getConfiguration();
   }, []);
+
+  const location = useLocation();
 
   return (
     <div className="flex flex-col justify-between h-full w-full">

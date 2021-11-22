@@ -12,7 +12,6 @@ import { setDetachMovie, setLoading, setMovies } from "../store/movies";
 import Button from "../components/Button";
 
 const Index = () => {
-  const [page, setPage] = useState(1);
   const { movies } = useSelector((state: RootState) => state);
   const dispatch = useDispatch();
 
@@ -22,10 +21,11 @@ const Index = () => {
       _.group("GetMovies");
       _.log("Disparado a ação de getMovies");
 
+      const page = (movies.list?.page || 0) + 1;
+
       const request = await movieUpcomingService(page);
       _.log("Resposta do request", request);
 
-      setPage(page + 1);
       dispatch(setMovies(request.data));
       if (!movies.detach) dispatch(setDetachMovie(request.data.results[0]));
     } catch (err) {
@@ -38,7 +38,7 @@ const Index = () => {
   };
 
   useEffect(() => {
-    getMovies();
+    if (!movies.list) getMovies();
   }, []);
 
   return (
